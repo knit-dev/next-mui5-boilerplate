@@ -1,0 +1,95 @@
+@import 'variables';
+
+@mixin can-hover {
+  @media screen and (any-hover: hover) {
+    @content;
+  }
+}
+
+@mixin can-touch {
+  @media screen and (any-hover: none) and (any-pointer: coarse) {
+    @content;
+  }
+}
+
+@mixin cant-hover {
+  @media screen and (any-hover: none) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @include can-hover {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin cant-touch {
+  @media screen and (any-hover: hover) and (any-pointer: fine) {
+    @content;
+  }
+}
+
+@mixin screen($size) {
+  @if ($size == '<xs') {
+    @media screen and (min-width: calc($screen-width-xs - 1px)) {
+      @content;
+    }
+  } @else if ($size == 'xs') {
+    @media screen and (max-width: $screen-width-xs) {
+      @content;
+    }
+  } @else if ($size == '>xs') {
+    @media screen and (min-width: calc($screen-width-xs + 1px)) {
+      @content;
+    }
+  } @else if ($size == 'sm') {
+    @media screen and (min-width: calc($screen-width-xs + 1px)) and (max-width: $screen-width-sm) {
+      @content;
+    }
+  } @else if ($size == '<sm') {
+    @media screen and (max-width: calc($screen-width-sm - 1px)) {
+      @content;
+    }
+  } @else if ($size == '>sm') {
+    @media screen and (min-width: $screen-width-sm) {
+      @content;
+    }
+  } @else if ($size == 'md') {
+    @media screen and (min-width: calc($screen-width-sm + 1px)) and (max-width: $screen-width-md) {
+      @content;
+    }
+  } @else if ($size == '<md') {
+    @media screen and (max-width: calc($screen-width-md - 1px)) {
+      @content;
+    }
+  } @else if ($size == '>md') {
+    @media screen and (min-width: $screen-width-md) {
+      @content;
+    }
+  } @else if ($size == '<lg') {
+    @media screen and (max-width: calc($screen-width-lg - 1px)) {
+      @content;
+    }
+  } @else if ($size == 'lg') {
+    @media screen and (min-width: calc($screen-width-md + 1px)) and (max-width: $screen-width-lg) {
+      @content;
+    }
+  } @else if ($size == '>lg') {
+    @media screen and (min-width: $screen-width-lg) {
+      @content;
+    }
+  } @else if ($size == '>xl') {
+    @media screen and (min-width: $screen-width-xl) {
+      @content;
+    }
+  } @else if ($size == 'xl') {
+    @media screen and (min-width: calc($screen-width-lg + 1px)) {
+      @content;
+    }
+  } @else {
+    @error "Unknown size #{$size}";
+  }
+}

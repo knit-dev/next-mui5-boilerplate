@@ -1,0 +1,43 @@
+@import 'mixins';
+@import 'variables';
+
+.container {
+  padding-left: 2 * $s;
+  padding-right: 2 * $s;
+  padding-top: 30vh;
+  height: 100%;
+  @include screen('<sm') {
+    padding-top: 20vh;
+    min-height: 100vh;
+  }
+  @media screen and (max-width: 400px) {
+    padding-top: 10vh;
+  }
+}
+
+.title {
+  text-decoration: none;
+  margin-bottom: $s;
+  @include screen('<sm') {
+    font-size: 42px;
+  }
+}
+.subtitle {
+  margin-bottom: 2 * $s;
+}
+
+.titleHighlighted {
+  color: transparent;
+  background-image: linear-gradient(
+    to right,
+    get('palette.primary.main') 15%,
+    get('palette.secondary.main')
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.bold {
+  font-weight: bold;
+  font-style: italic;
+}

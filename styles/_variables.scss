@@ -1,0 +1,15 @@
+//0
+$screen-width-xs: get('breakpoints.values.xs') + px;
+//600
+$screen-width-sm: get('breakpoints.values.sm') + px;
+//900
+$screen-width-md: get('breakpoints.values.md') + px;
+//1200
+$screen-width-lg: get('breakpoints.values.lg') + px;
+//1536
+$screen-width-xl: get('breakpoints.values.xl') + px;
+
+$s: get('spacingValue');
+
+$default-font-family: get('typography.fontFamily');
+$other-font-family: get('typography.otherFontFamily');

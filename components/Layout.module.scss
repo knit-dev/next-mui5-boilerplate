@@ -1,0 +1,18 @@
+@import 'mixins';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  .main {
+    flex: 1;
+  }
+  height: 100%;
+}
+
+.hidden {
+  visibility: hidden;
+}
+.visible {
+  visibility: visible;
+}

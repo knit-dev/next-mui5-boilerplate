@@ -1,0 +1,9 @@
+@import 'variables';
+@import 'mixins';
+
+html,
+body,
+body > div:first-child,
+div#__next {
+  height: 100%;
+}
